@@ -1,6 +1,7 @@
 package Unit2.Sort.Shell;
 
-import template.StdOut;
+
+import edu.princeton.cs.algs4.StdOut;
 
 import java.util.Scanner;
 
@@ -14,7 +15,7 @@ public class Shell {
             //将数组变成h有序
             for (int i = h; i < N; i++){
                 //将a[i]插入到a[i-h],a[i-2*h],a[i-3*h]....之中
-                for (int j = i; j >= h && less(a[j],a[j-h]);j -= h )
+                for (int j = i; j >= h && less(a[j],a[j-h]);j -= h)
                     exch(a,j,j-h);
             }
             h=h/3;

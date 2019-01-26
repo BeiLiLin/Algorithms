@@ -1,6 +1,6 @@
 package Unit2.Sort.Insertion;
 
-import template.StdOut;
+import edu.princeton.cs.algs4.StdOut;;
 
 import java.util.Scanner;
 

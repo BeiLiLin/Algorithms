@@ -1,6 +1,6 @@
 package Unit2.Sort.Selection;
 
-import template.StdOut;
+import edu.princeton.cs.algs4.StdOut;;
 
 import java.util.Scanner;
 

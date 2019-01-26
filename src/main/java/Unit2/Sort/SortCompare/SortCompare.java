@@ -7,9 +7,9 @@ import Unit2.Sort.MergeSort.MergeBU;
 import Unit2.Sort.QuitSort.Quick;
 import Unit2.Sort.Selection.Selection;
 import Unit2.Sort.Shell.Shell;
-import template.StdOut;
-import template.StdRandom;
-import template.Stopwatch;
+import edu.princeton.cs.algs4.StdOut;;
+import edu.princeton.cs.algs4.StdRandom;
+import edu.princeton.cs.algs4.Stopwatch;
 
 import java.util.Scanner;
 
@@ -29,10 +29,11 @@ public class SortCompare {
     //使用算法alg将T个长度为N的数组排序
     public static double timeRandomInput(String alg,int N,int T){
         double total = 0.0;
-        Double[] a = new Double[N];
+        Integer[] a = new Integer[N];
+
         for (int t = 0;t<T;t++){
             for (int i = 0;i<N;i++)
-                a[i] = StdRandom.uniform();
+                a[i] = StdRandom.uniform(10000);
             total += time(alg,a);
             }
           return total;

@@ -1,6 +1,7 @@
 package Unit2.Sort.MergeSort;
 
-import template.StdOut;
+
+import edu.princeton.cs.algs4.StdOut;
 
 import java.util.Scanner;
 
@@ -8,18 +9,17 @@ import java.util.Scanner;
  自底向上的归并排序
  */
 public class MergeBU {
-    private static Comparable[] aux;
     //排序算法
     public static void sort(Comparable[] a ){
         int N = a.length;
-        aux = new Comparable[N];//一次性分配空间
+        Comparable[] aux = new Comparable[N];//一次性分配空间
        for (int sz = 1; sz < N; sz= sz+sz)
            for (int lo = 0; lo < N-sz;lo += sz+sz)
-               merge(a,lo,lo+sz-1, Math.min(lo+sz+sz-1,N-1));
+               merge(a,lo,lo+sz-1, Math.min(lo+sz+sz-1,N-1),aux);
     }
 
     //原地归并
-    public static void merge(Comparable[] a,int lo,int mid, int hi )
+    public static void merge(Comparable[] a,int lo,int mid, int hi,Comparable[] aux )
     {
         //将a[lo...mid] 和 a[mid+1...hi]归并
         int i= lo;

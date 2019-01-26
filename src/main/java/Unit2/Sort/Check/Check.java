@@ -6,8 +6,8 @@ import Unit2.Sort.MergeSort.Merge;
 import Unit2.Sort.QuitSort.Quick;
 import Unit2.Sort.Selection.Selection;
 import Unit2.Sort.Shell.Shell;
-import template.StdOut;
-import template.StdRandom;
+import edu.princeton.cs.algs4.StdOut;;
+import edu.princeton.cs.algs4.StdRandom;
 
 import java.util.Scanner;
 

@@ -1,29 +1,28 @@
 package Unit2.Sort.MergeSort;
 
-import template.StdOut;
+import edu.princeton.cs.algs4.StdOut;;
 
 import java.util.Scanner;
 /*
- 自顶向下的归并排序
+ 自顶向下的归并排序，辅助数组为原数组提供了一个原数组的排序列表
  */
 public class Merge {
-    private static Comparable[] aux;
     //排序算法
     public static void sort(Comparable[] a ){
-        aux = new Comparable[a.length];//一次性分配空间
-        sort(a,0,a.length-1);
+        Comparable[] aux= new Comparable[a.length];//一次性为辅助数组分配空间
+        sort(a,0,a.length-1,aux);
     }
 
-    public static void sort(Comparable[] a,int lo,int hi){
+    public static void sort(Comparable[] a,int lo,int hi,Comparable[] aux){
         //将数组a[lo....hi]排序
         if(hi <= lo) return;
         int mid = lo + (hi-lo)/2;
-        sort(a,lo,mid);
-        sort(a,mid+1,hi);
-        merge(a,lo,mid,hi);
+        sort(a,lo,mid,aux);
+        sort(a,mid+1,hi,aux);
+        merge(a,lo,mid,hi,aux);
     }
     //原地归并
-    public static void merge(Comparable[] a,int lo,int mid, int hi )
+    public static void merge(Comparable[] a,int lo,int mid, int hi,Comparable[] aux )
     {
         //将a[lo...mid] 和 a[mid+1...hi]归并
         int i= lo;

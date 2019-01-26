@@ -1,12 +1,37 @@
 package Unit2.Sort.QuitSort;
 
-import template.StdOut;
+import edu.princeton.cs.algs4.StdOut;;
+import edu.princeton.cs.algs4.StdRandom;
 
 import java.util.Scanner;
 
 public class Quick {
-    //排序算法
-    public static void sort(Comparable[] a ){}
+    //快速排序算法
+    public static void sort(Comparable[] a ){
+        StdRandom.shuffle(a);
+        sort(a,0,a.length-1);
+    }
+    public static void sort(Comparable[] a,int lo,int hi ){
+        if(hi <= lo) return ;
+        int j = partition(a,lo,hi);//返回一个切分点
+        sort(a,lo,j-1);
+        sort(a,j+1,hi);
+    }
+    public static int partition(Comparable[] a,int lo,int hi ){
+        //将数组切分为a[lo--i-1],a[i]，a[i+1]....hi]
+        int i= lo,j=hi+1;
+        Comparable v = a[lo];
+        while(true){
+            //扫描左右，检查扫描是否结束并交换元素
+            while(less(a[++i],v))   if (i ==hi)    break;//到尾部跳出循环
+            while(less(v,a[--j]))   if(j == lo)    break;//到头部跳出循环
+            if (i >= j) break;
+            exch(a,i,j);
+        }
+        exch(a,lo,j);
+        return j;
+    }
+        // }
     /*
     v.compareTo(w)比较v,w两个数的大小，
     v.compareTo(w){
